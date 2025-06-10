@@ -1,7 +1,7 @@
 comands once to one device
 comands for registrate your data
-git config --global user.email "greatkn1gh1@gmail.com"
-git config --global user.name "Greatkn1ght"
+git config --global user.name "Your name"
+git config --global user.email "your-email@example.com"
 -------------------------------------------------------
 comands once to project
 
