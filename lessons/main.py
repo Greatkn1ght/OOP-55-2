@@ -17,15 +17,18 @@ class Hero:
         print(f"{self.name} action")
 
 # Child class / Inherited class
-class warrior(Hero, Power):
+class Warrior(Hero, Power):
     def __init__(self, name, lvl, hp, st):
         super().__init__(name, lvl, hp)
         self.st = st
     def action(self):
         print(f"Warrior method!!!")
 
-soldier = warrior("solder 1", 5, 100, 50)
+soldier = Warrior("solder 1", 5, 100, 50)
 soldier.action()
+
+# CamelCase
+# snake_case
 """
 class hero:
     # class constructor

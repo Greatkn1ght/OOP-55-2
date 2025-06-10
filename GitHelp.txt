@@ -15,3 +15,26 @@ Comands for working with repository
 git status | Shows present state of repository
 git add . | Adds all changes to repository
 git commit -m "Commit message" | Adds commit to repository
+git branch
+git push origin main|master
+git rm -r --cached name_dir | for delete directory
+----------------------------------------------------------------
+
+Comands for terminal
+
+clear | clears terminal
+
+cd dir_name / (cd ../ = esc)   | move between directories
+ls | for watching files and directories
+ls -a | for watching all files and directories even hided ones
+mkdir dir_name| creates directory
+touch file_name | creates file
+-----------------------------------------------------------------
+
+Prefixes for GitHub
+
+feat: | for features
+update: | for updates
+delete: | for deleted stuff
+fix: | for fixed stuff
+hot-fix: | for fixed stuff in product thing
