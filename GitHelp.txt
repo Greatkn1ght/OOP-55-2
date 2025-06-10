@@ -1,0 +1,17 @@
+comands once to one device
+comands for registrate your data
+git config --global user.email "greatkn1gh1@gmail.com"
+git config --global user.name "Greatkn1ght"
+-------------------------------------------------------
+comands once to project
+
+git init | For initialization of repository
+git add . | For adding to repository
+git remote add origin https://github.com/Greatkn1ght/OOP-55-2.git
+------------------------------------------------------------------
+
+Comands for working with repository
+
+git status | Shows present state of repository
+git add . | Adds all changes to repository
+git commit -m "Commit message" | Adds commit to repository
