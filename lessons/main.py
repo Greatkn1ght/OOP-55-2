@@ -1,3 +1,42 @@
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def make_sound(self):
+        # ...
+        pass
+
+    @abstractmethod
+    def move(self):
+        pass
+
+class Dog(Animal):
+    pass
+
+gufi = Dog()
+"""
+# Encapsulation
+import random
+class BankAccount:
+
+    def __init__(self, user_name, balance, password):
+        self.user_name = user_name
+        # protected
+        self._balance = balance
+        # private
+        self.__password = password
+
+    def get_balance(self):
+        return self._balance
+
+    def reset_password(self, new_one):
+        self.__password = self.__generate_code()
+        return self.__password
+
+jack = BankAccount("Jack", 1000, 321123)
+print(jack.user_name)
+"""
+"""
 # Inheritance
 # Polymorphism
 
@@ -29,6 +68,7 @@ soldier.action()
 
 # CamelCase
 # snake_case
+"""
 """
 class hero:
     # class constructor
