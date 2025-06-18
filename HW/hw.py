@@ -1,3 +1,54 @@
+from itertools import product
+
+
+class Products:
+    def __init__(self, name, price, stock):
+        self.__name = name
+        self.__price = price
+        self.__stock = stock
+
+    def get_info(self):
+        return(print(f"Product: {self.__name}, Price: {self.__price}, In stock: {self.__stock}"))
+
+    def buy(self, quantity):
+        if(self.__stock < quantity):
+            return False
+        else:
+            self.__stock -= quantity
+            return True
+    def get_name(self):
+        return self.__name
+
+    def get_price(self):
+        return self.__price
+
+class Cart:
+    def __init__(self):
+        self.products = []
+
+    def add_product(self, name, quantity):
+        if name.buy(quantity):
+            self.products.append((name, quantity))
+        else:
+            print("Not enough products in the stock!")
+
+    def checkout(self):
+        total = 0
+        for name, quantity in self.products:
+            price = name.get_price()
+            curname = name.get_name()
+            cur = price * quantity
+            total += cur
+            print(f"Product: {curname}, {quantity} pcs. at {price} = {cur}")
+        print(f"Total: {total}")
+
+p1 = Products("Laptop", 50000, 10)
+p2 = Products("Mouse", 1000, 50)
+cart = Cart()
+cart.add_product(p1, 2)
+cart.add_product(p2, 5)
+cart.checkout()
+"""
 class Person:
     def __init__(self, name, age, city):
         self.name = name
@@ -15,3 +66,4 @@ human = Person("Bob", 19, "London")
 human_1 = Person("Jake", 16, "Bermingham")
 human_2 = Person("Micheal", 11, "Chicago")
 print(human.is_adult(), human_1.is_adult(), human_2.is_adult(), sep='\n')
+"""
