@@ -1,3 +1,64 @@
+# Modul - main.py all files with extension .py
+from HW/hw import square_result
+@square_result
+def ok(a, b):
+    return a+b
+print(ok)
+# Packets = file which contains many moduls
+"""
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+
+    def __eq__(self, other):
+        return "Not equal"
+
+    def __gt__(self, other):
+        return "Correct"
+
+    def __lt__(self, other):
+        return "Correct ls"
+
+a = Vector(10, 20)
+b = Vector(5, 1)
+c = a < b
+
+class Customlist:
+    def __init__(self, items):
+        self.items = items
+
+    def __setitem__(self, key, value):
+        return print("Our text")
+
+    def __delitem__(self, key):
+        print("Not going to delete!")
+        
+    # def __call__(self, *args, **kwargs):
+    # def __exit__(self, exc_type, exc_val, exc_tb):   
+    
+    
+my_list = Customlist([1, 23, 15, 8, 0])
+my_list[1] = 25
+del my_list[2]
+# Magic methods
+# (or dunder-methods, from "underscore")
+"""
+"""
+class Hero:
+    def __init__(self, name, hp, lvl=None):
+        self.name = name
+        self.lvl = lvl
+
+    def __str__(self):
+        return "Our text"
+
+hero = Hero("Bob", 100, 10)
+print(hero)
+"""
 """
 def class_decorator(cls):
     class NewClass(cls):

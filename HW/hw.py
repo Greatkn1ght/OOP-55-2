@@ -1,5 +1,17 @@
-from itertools import product
+def square_result(func):
+    def wrapper():
+        func()
+        cur = func()
+        print(cur ** 2)
+    return wrapper
 
+@square_result
+def add(a, b):
+    return a+b
+
+print(add(2, 3))
+"""
+from itertools import product
 
 class Products:
     def __init__(self, name, price, stock):
@@ -48,6 +60,7 @@ cart = Cart()
 cart.add_product(p1, 2)
 cart.add_product(p2, 5)
 cart.checkout()
+"""
 """
 class Person:
     def __init__(self, name, age, city):
