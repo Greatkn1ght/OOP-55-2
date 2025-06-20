@@ -1,8 +1,7 @@
 def square_result(func):
-    def wrapper():
-        func()
-        cur = func()
-        print(cur ** 2)
+    def wrapper(a, b):
+        cur = func(a, b)
+        return cur ** 2
     return wrapper
 
 @square_result
@@ -10,6 +9,27 @@ def add(a, b):
     return a+b
 
 print(add(2, 3))
+
+def check_user(username):
+    def decorator(func):
+        def wrapper():
+            if(username == 'admin'):
+                func()
+            else:
+                print("Access denied. Only for admin")
+        return wrapper
+    return decorator
+
+@check_user("admin")
+def delete_database():
+    print("Database deleted!")
+
+@check_user("guest")
+def delete_logs():
+    print("Logs deleted!")
+
+delete_database()
+delete_logs()
 """
 from itertools import product
 
