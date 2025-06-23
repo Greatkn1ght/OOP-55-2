@@ -1,9 +1,12 @@
+import requests
+response = requests.get("https://api.github.com")
+print(response.json())
 # Modul - main.py all files with extension .py
-from HW/hw import square_result
-@square_result
-def ok(a, b):
-    return a+b
-print(ok)
+# from HW/hw import square_result
+# @square_result
+# def ok(a, b):
+#     return a+b
+# print(ok)
 # Packets = file which contains many moduls
 """
 class Vector:
