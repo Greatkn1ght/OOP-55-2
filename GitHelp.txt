@@ -30,7 +30,6 @@ ls -a | for watching all files and directories even hided ones
 mkdir dir_name| creates directory
 touch file_name | creates file
 -----------------------------------------------------------------
-
 Prefixes for GitHub
 
 feat: | for features
@@ -38,3 +37,19 @@ update: | for updates
 delete: | for deleted stuff
 fix: | for fixed stuff
 hot-fix: | for fixed stuff in product thing
+---------------------------------------------------
+
+new text | comand for manage text
+
+staging|develop | Branches for test developing
+release/1.0.0 | Branch for release
+production | Branch for production for user
+py
+python -m venv name_venv | create venv
+python3
+
+pip freeze -> requirements.txt | For saving dependencies in file
+
+pip install name_model | For installing dependencies
+
+git branch -d branch_name | To delete a branch

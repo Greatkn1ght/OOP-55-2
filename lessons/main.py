@@ -1,6 +1,71 @@
+# requests - for working with HTTP requests
 import requests
 response = requests.get("https://api.github.com")
 print(response.json())
+
+#pandas - for working with tables and data
+import pandas as pd
+data = {
+    "Name": ["Arzybek", "Adilet", "Aziza"],
+    "Age": [25, 30, 22]
+}
+df = pd.DataFrame(data)
+print(df)
+
+#matplotlib - for plotting graphs
+import matplotlib.pyplot as plt
+x = [1, 2, 3, 4, 5]
+y = [2, 5, 7, 10, 12]
+
+plt.plot(x, y, label="Growth", marker='o')
+plt.title("Example Plot")
+plt.xlabel("Time")
+plt.ylabel("Value")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+#beautifulsoup4 = for HTML parsing
+import requests
+from bs4 import BeautifulSoup
+
+response = requests.get("https://example.com")
+soup = BeautifulSoup(response.text, "html.parser")
+
+title = soup.title.text
+print("Page title: ", title)
+
+for p in soup.find_all("p"):
+    print("Paragraph:", p.text)
+# Big o notation - way of describing comlexity of algorithm.
+
+# O(1) - constant
+# O(n) - linear
+# O(n^2) - squared
+"""
+def find_element(arr, elem):
+    for i in arr:
+        if(i == elem):
+            return(print(f"{i}"))
+    return(print("There is no such a number"))
+my_list = [1, 23, 4, 54, 5, 67, 658]
+find_element(my_list, 4)
+
+# O(log n)
+def binary_search(arr, target):
+    l, r = 0, len(arr) - 1
+    while(l <= r):
+        mid = (l+r) >> 1
+        print(mid)
+        if(arr[mid] == target):
+            return print(mid)
+        elif arr[mid] < target:
+            l = mid+1
+        else:
+            r = mid-1
+    return print("There no such a number")
+my_array = [1, 3, 5, 7, 9, 11, 13]
+binary_search(my_array, 7)
 # Modul - main.py all files with extension .py
 # from HW/hw import square_result
 # @square_result
@@ -8,6 +73,7 @@ print(response.json())
 #     return a+b
 # print(ok)
 # Packets = file which contains many moduls
+"""
 """
 class Vector:
     def __init__(self, x, y):
