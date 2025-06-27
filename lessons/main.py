@@ -1,3 +1,54 @@
+import sqlite3
+
+#A4 paper
+connect = sqlite3.connect("users.db")
+# Hand with pencil
+cursor = connect.cursor()
+
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS users(
+        fio VARCHAR (100) NOT NULL,
+        age INTEGER NOT NULL,
+        hobby TEXT
+    )
+''')
+connect.commit()
+
+# CRUD = Create - Read - Update - Delete
+def add_user(fio, age, hobby):
+    cursor.execute(
+        'INSERT INTO users(fio, age, hobby) VALUES (?, ?, ?)',
+        (fio, age, hobby)
+    )
+    connect.commit()
+
+add_user('peter parker', 23, "Rescue")
+
+def get_all_users():
+    cursor.execute('SELECT * FROM users')
+    users = cursor.fetchall()
+    print(f"ALL users: {users}")
+    for i in users:
+        print(f"FIO: {i[0]}, AGE: {i[1]}, HOBBY: {i[2]}")
+
+get_all_users()
+
+# Update
+
+def update_user(fio, rowid):
+    cursor.execute(
+        'UPDATE users SET fio = ? WHERE rowid = ?',
+        (fio, rowid)
+    )
+    connect.commit()
+
+update_user("Ivan Zolo", 2)
+
+# Delete
+def delete_user(rowid):
+    cursor.execute('DELETE FROM users WHERE rowid = ?', (rowid,))
+    connect.commit()
+"""
 # requests - for working with HTTP requests
 import requests
 response = requests.get("https://api.github.com")
@@ -42,6 +93,7 @@ for p in soup.find_all("p"):
 # O(1) - constant
 # O(n) - linear
 # O(n^2) - squared
+"""
 """
 def find_element(arr, elem):
     for i in arr:
