@@ -53,3 +53,5 @@ pip freeze -> requirements.txt | For saving dependencies in file
 pip install name_model | For installing dependencies
 
 git branch -d branch_name | To delete a branch
+
+git fetch --all | For excluding all branches in repository

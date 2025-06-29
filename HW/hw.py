@@ -1,3 +1,11 @@
+nums = list(map(int, input().split()))
+target = int(input())
+for i in range(len(nums)):
+    for j in range(i+1, len(nums)):
+        if(nums[i] + nums[j] == target):
+            print([i, j])
+            exit()
+"""
 def square_result(func):
     def wrapper(a, b):
         cur = func(a, b)
@@ -30,6 +38,7 @@ def delete_logs():
 
 delete_database()
 delete_logs()
+"""
 """
 from itertools import product
 
