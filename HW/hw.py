@@ -1,3 +1,53 @@
+import sqlite3
+
+connect = sqlite3.connect("Clothes.db")
+cursor = connect.cursor()
+
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS Clothes(
+        brand VARHCAR (100) NOT NULL,
+        size TEXT,
+        quantity INTEGER NOT NULL
+    )
+''')
+connect.commit()
+
+def add_cloth(brand, size, quantity):
+    cursor.execute(
+        'INSERT INTO Clothes(brand, size, quantity) VALUES (?, ?, ?)',
+        (brand, size, quantity)
+    )
+    print("Added!")
+    connect.commit()
+
+add_cloth("ArmaniExchange", "L", 25)
+
+def get_all_clothes():
+    cursor.execute('SELECT * FROM Clothes')
+    Clothes = cursor.fetchall()
+    print(f"All clothes: {Clothes}")
+    for i in Clothes:
+        print(f"Brand: {i[0]}, Size: {i[1]}, Quantity: {i[2]}")
+
+get_all_clothes()
+
+def update_cloth(brand, rowid):
+    cursor.execute(
+        'UPDATE Clothes SET brand = ? WHERE rowid = ?',
+        (brand, rowid)
+    )
+    print("Updated!")
+    connect.commit()
+
+update_cloth("Puma", 2)
+
+def delete_cloth(rowid):
+    cursor.execute('DELETE FROM Clothes WHERE rowid = ?', (rowid,))
+    print("Cloth is deleted!")
+    connect.commit()
+
+delete_cloth(5)
+"""
 nums = list(map(int, input().split()))
 target = int(input())
 for i in range(len(nums)):
@@ -5,6 +55,7 @@ for i in range(len(nums)):
         if(nums[i] + nums[j] == target):
             print([i, j])
             exit()
+"""
 """
 def square_result(func):
     def wrapper(a, b):
