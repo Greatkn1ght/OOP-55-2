@@ -1,5 +1,101 @@
 import sqlite3
 
+connect = sqlite3.connect("users.db")
+cursor = connect.cursor()
+
+def create_table():
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS users(
+            userid INTEGER PRIMARY KEY AUTOINCREMENT,
+            fio VARCHAR (100) NOT NULL,
+            age INTEGER NOT NULL
+        )
+    ''')
+
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS grades(
+            gradeid INTEGER PRIMARY KEY AUTOINCREMENT,
+            userid INTEGER, 
+            subject VARCHAR (100) NOT NULL,
+            grade INTEGER NOT NULL,
+            FOREIGN KEY (userid) REFERENCES users(userid)
+        )
+    ''')
+    connect.commit()
+
+# create_table()
+
+def add_user(fio, age):
+    cursor.execute('INSERT INTO users(fio, age) VALUES (?, ?)', (fio, age))
+    connect.commit()
+    print(f"User {fio} is added!")
+
+# add_user("John Doe", 25)
+# add_user("Peter Parker", 19)
+# add_user("Ivan Zolo", 23)
+
+def add_grade(userid, subject, grade):
+    cursor.execute(
+        'INSERT INTO grades(userid, subject, grade) VALUES (?, ?, ?)',
+        (userid, subject, grade)
+    )
+    print(f"Grade is added for user with ID {userid}")
+    connect.commit()
+
+
+def get_users_with_grades():
+    cursor.execute('''
+        SELECT users.fio, grades.subject, grades.grade
+        FROM users INNER JOIN grades ON users.userid = grades.userid
+    ''')
+    rows = cursor.fetchall()
+    for i in rows:
+        print(f"FIO: {i[0]}, SUBJECT: {i[1]}, GRADE: {i[2]}")
+
+# get_users_with_grades()
+
+# AVG() - Average
+# MAX() - Maximum
+# MIN() - Minimum COUNT() SUM()
+"""
+def get_avg_age():
+    cursor.execute('SELECT AVG(age) FROM users')
+    avg_age = cursor.fetchall()
+    print(avg_age)
+
+get_avg_age()
+"""
+# def create_view_young_users():
+#     cursor.execute('''
+#         CREATE VIEW IF NOT EXISTS young_users AS
+#         SELECT fio, age
+#         FROM users
+#         WHERE age <= 30
+#     ''')
+#     connect.commit()
+#     print("View young_users is created!")
+
+# create_view_young_users()
+
+def create_view_Daniel():
+    cursor.execute('''
+            CREATE VIEW IF NOT EXISTS elder_users AS
+            SELECT fio, age
+            FROM users
+            WHERE age >= 20
+        ''')
+    connect.commit()
+    print("View elder_users is created!")
+
+create_view_Daniel()
+
+def get_from_view_Daniel():
+    cursor.execute('SELECT * FROM elder_users')
+    print(cursor.fetchall())
+
+"""
+import sqlite3
+
 #A4 paper
 connect = sqlite3.connect("users.db")
 # Hand with pencil
@@ -48,6 +144,7 @@ update_user("Ivan Zolo", 2)
 def delete_user(rowid):
     cursor.execute('DELETE FROM users WHERE rowid = ?', (rowid,))
     connect.commit()
+"""
 """
 # requests - for working with HTTP requests
 import requests
